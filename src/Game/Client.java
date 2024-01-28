@@ -240,9 +240,6 @@ public class Client {
   public static int planeIndex = -1;
   public static boolean loadingArea = false;
 
-  public static boolean sleepCmdSent = false;
-  public static int sleepBagIdx = -1;
-
   public static Object clientStream;
   public static Object writeBuffer;
   public static Object menuCommon;
@@ -1906,9 +1903,6 @@ public class Client {
             Bank.search(commandArray, true);
           }
           break;
-        case "sleep":
-          Client.sleep();
-          break;
         case "screenshot":
           Renderer.takeScreenshot(false);
           break;
@@ -2378,32 +2372,6 @@ public class Client {
     try {
       Reflection.lastMouseAction.set(Client.instance, val);
     } catch (Exception e) {
-    }
-  }
-
-  /** Send over the instruction of sleep, if player has sleeping bag with them */
-  public static void sleep() {
-    if (Settings.SPEEDRUNNER_MODE_ACTIVE.get(Settings.currentProfile)) return;
-    if (Reflection.itemClick == null) return;
-
-    try {
-      int idx = -1;
-      // inventory_items contains ids of items
-      for (int n = 0; n < max_inventory; n++) {
-        // id of sleeping bag
-        if (inventory_items[n] == 1263) {
-          idx = n;
-          break;
-        }
-      }
-      if (idx != -1 && !Client.isInterfaceOpen() && !Client.isInCombat()) {
-        // method to sleep here
-        sleepCmdSent = true;
-        sleepBagIdx = idx;
-        Reflection.itemClick.invoke(Client.instance, false, 0);
-      }
-    } catch (Exception e) {
-
     }
   }
 

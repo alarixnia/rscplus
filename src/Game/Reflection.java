@@ -95,7 +95,6 @@ public class Reflection {
   public static Method loseConnection = null;
   public static Method login = null;
   public static Method logout = null;
-  public static Method itemClick = null;
   public static Method menuGen = null;
   public static Method drawBox = null;
   public static Method drawBoxBorder = null;
@@ -188,7 +187,6 @@ public class Reflection {
   private static final String LOGIN =
       "private final void client.a(int,java.lang.String,java.lang.String,boolean)";
   private static final String LOGOUT = "private final void client.B(int)";
-  private static final String ITEMCLICK = "private final void client.b(boolean,int)";
   private static final String MENUGEN =
       "final void wb.a(int,int,boolean,java.lang.String,java.lang.String)";
   private static final String DRAWBOX = "final void ua.a(int,byte,int,int,int,int)";
@@ -342,9 +340,6 @@ public class Reflection {
         } else if (method.toGenericString().equals(LOGOUT)) {
           logout = method;
           Logger.Info("Found logout");
-        } else if (method.toGenericString().equals(ITEMCLICK)) {
-          itemClick = method;
-          Logger.Info("Found itemClick");
         } else if (method.toGenericString().equals(GETNPC)) {
           getNpc = method;
           Logger.Info("Found getNpc");
@@ -875,7 +870,6 @@ public class Reflection {
       if (loseConnection != null) loseConnection.setAccessible(true);
       if (login != null) login.setAccessible(true);
       if (logout != null) logout.setAccessible(true);
-      if (itemClick != null) itemClick.setAccessible(true);
       if (menuGen != null) menuGen.setAccessible(true);
       if (drawBox != null) drawBox.setAccessible(true);
       if (drawBoxBorder != null) drawBoxBorder.setAccessible(true);

@@ -4008,13 +4008,6 @@ public class ConfigWindow {
     // consider using ALT instead.
 
     addKeybindCategory(keybindContainerPanel, "General");
-    addKeybindSet(
-        keybindContainerPanel,
-        "Sleep",
-        "sleep",
-        KeyModifier.CTRL,
-        KeyEvent.VK_SPACE,
-        "sleeping bag");
     addKeybindSet(keybindContainerPanel, "Logout", "logout", KeyModifier.CTRL, KeyEvent.VK_L);
     addKeybindSet(
         keybindContainerPanel, "Take screenshot", "screenshot", KeyModifier.CTRL, KeyEvent.VK_S);

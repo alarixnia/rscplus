@@ -4547,9 +4547,6 @@ public class Settings {
    */
   public static boolean processKeybindCommand(String commandName) {
     switch (commandName) {
-      case "sleep":
-        if (Client.state != Client.STATE_LOGIN && !Replay.isPlaying) Client.sleep();
-        return true;
       case "logout":
         if (Client.state != Client.STATE_LOGIN) Client.logout();
         return true;
